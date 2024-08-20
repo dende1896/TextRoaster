@@ -18,5 +18,5 @@ auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, acc
 api = tweepy.API(auth)
 
 # Einen Tweet posten
-tweet = "Hello, world! #ArtikelRoaster
+tweet = "Hello, world! #ArtikelRoaster"
 api.update_status(tweet)
