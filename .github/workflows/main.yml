@@ -2,8 +2,7 @@ name: Twitter Bot
 
 on:
   schedule:
-    # Läuft jeden Tag um 9:00 Uhr
-    - cron: "0 9 * * *"
+    - cron: "0 9 * * *"  # Läuft jeden Tag um 9:00 Uhr
   workflow_dispatch:
 
 jobs:
@@ -12,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3  # Aktualisierte Version
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v4  # Aktualisierte Version
+      uses: actions/setup-python@v4
       with:
         python-version: '3.x'
 
