@@ -18,7 +18,11 @@ jobs:
         python-version: '3.9'
 
     - name: Install dependencies
-      run: pip install tweepy
+      run: pip install --upgrade tweepy
+
+    - name: Verify Tweepy Version
+      run: |
+        python -c "import tweepy; print('Tweepy Version:', tweepy.__version__)"
 
     - name: Run bot
       env:
