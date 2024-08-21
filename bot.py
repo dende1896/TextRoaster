@@ -1,22 +1,15 @@
 import tweepy
 import os
 
-# Hol dir die OAuth1-Authentifizierungsdaten aus den Umgebungsvariablen
-consumer_key = os.getenv('TWITTER_CONSUMER_KEY')
-consumer_secret = os.getenv('TWITTER_CONSUMER_SECRET')
-access_token = os.getenv('TWITTER_ACCESS_TOKEN')
-access_token_secret = os.getenv('TWITTER_ACCESS_TOKEN_SECRET')
+# OAuth2 (Bearer Token)
+bearer_token = os.getenv('TWITTER_BEARER_TOKEN')
 
-if not all([consumer_key, consumer_secret, access_token, access_token_secret]):
-    raise ValueError("Eine oder mehrere OAuth1-Umgebungsvariablen fehlen.")
-
-# Erstelle den Client für die v1.1 API mit OAuth1
-auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
-client = tweepy.API(auth)
+# Initialisierung des Clients mit OAuth2 Bearer Token
+client = tweepy.Client(bearer_token=bearer_token)
 
 # Definiere den Tweet-Text
 tweet = "Hello, world! #ArtikelRoaster"
 
-# Poste den Tweet über die API v1.1
-response = client.update_status(status=tweet)
+# Poste den Tweet über die v2 API
+response = client.create_tweet(text=tweet)
 print(response)
