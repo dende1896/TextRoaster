@@ -1,10 +1,10 @@
 import tweepy
 import os
 
-# OAuth2 (Bearer Token)
+# Hol dir den Bearer Token aus den Umgebungsvariablen
 bearer_token = os.getenv('TWITTER_BEARER_TOKEN')
 
-# Initialisierung des Clients mit OAuth2 Bearer Token
+# Erstelle den Client für die v2 API mit dem Bearer Token
 client = tweepy.Client(bearer_token=bearer_token)
 
 # Definiere den Tweet-Text
